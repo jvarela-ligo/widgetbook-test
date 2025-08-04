@@ -15,6 +15,14 @@ class WidgetbookApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Widgetbook.material(
+      addons: [
+        ViewportAddon(
+          [
+            ...IosViewports.all,
+            ...WindowsViewports.all,
+          ]
+        )
+      ],
       directories: directories,
     );
   }
