@@ -7,19 +7,21 @@ import 'package:widgetbooktestapp/widgets/app_text_form_field.dart';
 Widget buildTextFormFieldUseCase(BuildContext context) {
   final controller = TextEditingController();
 
-  return AppTextFormField(
-    controller: controller,
-    label: context.knobs.string(label: 'Label', initialValue: 'Correo electronico'),
-    prefixIcon: Icons.email_outlined,
-    obscureText: context.knobs.boolean(label: 'Obscure Text'),
-    validator: (value) {
-      if (value == null || value.isEmpty) {
-        return 'Por favor ingresa tu correo';
-      }
-      if (!value.contains('@')) {
-        return 'Ingresa un correo válido';
-      }
-      return null;
-    },
+  return Center(
+    child: AppTextFormField(
+      controller: controller,
+      label: context.knobs.string(label: 'Label', initialValue: 'Correo electronico'),
+      prefixIcon: Icons.email_outlined,
+      obscureText: context.knobs.boolean(label: 'Obscure Text'),
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Por favor ingresa tu correo';
+        }
+        if (!value.contains('@')) {
+          return 'Ingresa un correo válido';
+        }
+        return null;
+      },
+    ),
   );
 }

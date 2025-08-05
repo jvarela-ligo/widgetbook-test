@@ -17,13 +17,35 @@ import 'package:widgetbook_workspace/app_card.dart'
     as _widgetbook_workspace_app_card;
 import 'package:widgetbook_workspace/app_text_form_field.dart'
     as _widgetbook_workspace_app_text_form_field;
+import 'package:widgetbook_workspace/page/home_page.dart'
+    as _widgetbook_workspace_page_home_page;
 import 'package:widgetbook_workspace/page/login_page.dart'
     as _widgetbook_workspace_page_login_page;
 
 final directories = <_widgetbook.WidgetbookNode>[
   _widgetbook.WidgetbookFolder(
+    name: 'page',
+    children: [
+      _widgetbook.WidgetbookLeafComponent(
+        name: '_QuickActionsDemo',
+        useCase: _widgetbook.WidgetbookUseCase(
+          name: 'Acciones Rápidas',
+          builder:
+              _widgetbook_workspace_page_home_page.buildQuickActionsDemoUseCase,
+        ),
+      ),
+    ],
+  ),
+  _widgetbook.WidgetbookFolder(
     name: 'pages',
     children: [
+      _widgetbook.WidgetbookLeafComponent(
+        name: 'HomePage',
+        useCase: _widgetbook.WidgetbookUseCase(
+          name: 'Home Banking',
+          builder: _widgetbook_workspace_page_home_page.buildHomePageUseCase,
+        ),
+      ),
       _widgetbook.WidgetbookLeafComponent(
         name: 'LoginPage',
         useCase: _widgetbook.WidgetbookUseCase(
