@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:widgetbooktestapp/widgets/app_button.dart';
+import 'package:widgetbooktestapp/widgets/app_text_form_field.dart';
 import 'package:widgetbooktestapp/widgets/app_title.dart';
 
 class LoginPage extends StatefulWidget {
@@ -29,10 +30,7 @@ class _LoginPageState extends State<LoginPage> {
           gradient: LinearGradient(
             begin: Alignment.topLeft,
             end: Alignment.bottomRight,
-            colors: [
-              Color(0xFF667eea),
-              Color(0xFF764ba2),
-            ],
+            colors: [Color(0xFF667eea), Color(0xFF764ba2)],
           ),
         ),
         child: SafeArea(
@@ -52,7 +50,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: 8),
-                    
                     Text(
                       'Inicia sesión para continuar',
                       textAlign: TextAlign.center,
@@ -62,7 +59,6 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: 48),
-                    
                     Container(
                       decoration: BoxDecoration(
                         color: Colors.white.withOpacity(0.9),
@@ -75,15 +71,10 @@ class _LoginPageState extends State<LoginPage> {
                           ),
                         ],
                       ),
-                      child: TextFormField(
+                      child: AppTextFormField(
                         controller: _emailController,
-                        decoration: const InputDecoration(
-                          labelText: 'Correo electrónico',
-                          prefixIcon: Icon(Icons.email_outlined),
-                          border: InputBorder.none,
-                          contentPadding: EdgeInsets.all(16),
-                        ),
-                        keyboardType: TextInputType.emailAddress,
+                        label: 'Correo electrónico',
+                        prefixIcon: Icons.email_outlined,
                         validator: (value) {
                           if (value == null || value.isEmpty) {
                             return 'Por favor ingresa tu correo';
@@ -96,41 +87,13 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.9),
-                        borderRadius: BorderRadius.circular(12),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.1),
-                            blurRadius: 10,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: TextFormField(
-                        controller: _passwordController,
-                        obscureText: true,
-                        decoration: const InputDecoration(
-                          labelText: 'Contraseña',
-                          prefixIcon: Icon(Icons.lock_outlined),
-                          border: InputBorder.none,
-                          contentPadding: EdgeInsets.all(16),
-                        ),
-                        validator: (value) {
-                          if (value == null || value.isEmpty) {
-                            return 'Por favor ingresa tu contraseña';
-                          }
-                          if (value.length < 6) {
-                            return 'La contraseña debe tener al menos 6 caracteres';
-                          }
-                          return null;
-                        },
-                      ),
+                    AppTextFormField(
+                      controller: _passwordController,
+                      label: 'Contraseña',
+                      prefixIcon: Icons.lock_outlined,
+                      obscureText: true,
                     ),
                     const SizedBox(height: 24),
-                    
                     Align(
                       alignment: Alignment.centerRight,
                       child: TextButton(
@@ -147,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: 32),
-                    
+
                     Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(12),
@@ -163,7 +126,6 @@ class _LoginPageState extends State<LoginPage> {
                         label: 'Iniciar Sesión',
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            // TODO: Implement login logic
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                 content: Text('Iniciando sesión...'),
@@ -176,7 +138,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                     const SizedBox(height: 24),
-                    
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [

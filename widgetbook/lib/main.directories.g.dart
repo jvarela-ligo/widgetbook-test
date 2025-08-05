@@ -13,6 +13,10 @@
 import 'package:widgetbook/widgetbook.dart' as _widgetbook;
 import 'package:widgetbook_workspace/app_button.dart'
     as _widgetbook_workspace_app_button;
+import 'package:widgetbook_workspace/app_card.dart'
+    as _widgetbook_workspace_app_card;
+import 'package:widgetbook_workspace/app_text_form_field.dart'
+    as _widgetbook_workspace_app_text_form_field;
 import 'package:widgetbook_workspace/page/login_page.dart'
     as _widgetbook_workspace_page_login_page;
 
@@ -37,6 +41,21 @@ final directories = <_widgetbook.WidgetbookNode>[
         useCase: _widgetbook.WidgetbookUseCase(
           name: 'Button',
           builder: _widgetbook_workspace_app_button.buildCoolButtonUseCase,
+        ),
+      ),
+      _widgetbook.WidgetbookLeafComponent(
+        name: 'AppCard',
+        useCase: _widgetbook.WidgetbookUseCase(
+          name: 'Card',
+          builder: _widgetbook_workspace_app_card.buildAppCardUseCase,
+        ),
+      ),
+      _widgetbook.WidgetbookLeafComponent(
+        name: 'AppTextFormField',
+        useCase: _widgetbook.WidgetbookUseCase(
+          name: 'TextFormField',
+          builder: _widgetbook_workspace_app_text_form_field
+              .buildTextFormFieldUseCase,
         ),
       ),
     ],
